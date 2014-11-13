@@ -14,5 +14,11 @@ if (Decks.find().count() === 0) {
   Decks.insert({
     title: 'Function Binding',
     date: 2
-  })
+  });
+  for ( var i = 0; i < 50; i++) {
+    Decks.insert({
+      title: i+'Decker',
+      date: Math.floor(Math.random()*20)+1
+    });
+  }
 }
