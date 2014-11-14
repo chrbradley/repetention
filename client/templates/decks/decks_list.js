@@ -1,5 +1,5 @@
 Template.decksList.helpers({
   decks: function() {
-    return Decks.find();
+    return Decks.find({}, {sort: {date: -1}});
   }
 });
