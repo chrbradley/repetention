@@ -1,24 +1,39 @@
 if (Decks.find().count() === 0) {
-  Decks.insert({
-    title: 'Alogorithm of an Alogorithm',
-    date: 1
+  var now = new Date().getTime();
+
+  // create two users
+  var coopId = Meteor.users.insert({
+    profile: {name: 'Cooper Dooper'}
   });
-  Decks.insert({
-    title: 'The Keyword This',
-    date: 9
+  var coop = Meteor.users.findOne(coopId);
+
+  var shaneId = Meteor.users.insert({
+    profile: {name: 'Shaney Bear'}
   });
-  Decks.insert({
-    title: 'How to succeed',
-    date: 15
+  var shane = Meteor.users.findOne(shaneId);
+
+  var wyattId = Meteor.users.insert({
+    profile: {name: 'Wyatt Riot'}
   });
-  Decks.insert({
-    title: 'Function Binding',
-    date: 2
-  });
+  var wyatt = Meteor.users.findOne(wyattId);
+
+  var userBank = [coop, shane, wyatt];
+
   for ( var i = 0; i < 50; i++) {
-    Decks.insert({
+    var rand = Math.floor(Math.random()*userBank.length);
+    var deckId = Decks.insert({
       title: i+'Decker',
-      date: Math.floor(Math.random()*20)+1
+      userId: userBank[rand]._id,
+      author: userBank[rand].profile.name,
+      submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 3600 * 1000))
     });
+    var randCards = Math.floor(Math.random()*15)+3;
+    for (var j = 0; j < randCards; j++) {
+      Cards.insert({
+        deckId: deckId,
+        question: 'This is the cards question'+j,
+        answer: 'This is the answer to the question'+j
+      });
+    }
   }
 }
