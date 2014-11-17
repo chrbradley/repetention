@@ -2,6 +2,12 @@
   <div class="deck">
     <div class="deck-content">
       <h3>{{title}} <span>date: {{date}} </span><span> submitted: {{submitted}}</span></h3>
+      <p>
+        Created by {{author}}
+        {{#if ownDeck}}
+        <a href="{{pathFor 'deckEdit'}}">Edit</a>
+        {{/if}}
+      </p>
     </div>
     <a href="{{pathFor 'deckPage'}}" class="discuss btn btn-default">View</a>
   </div>
