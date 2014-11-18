@@ -1,8 +1,15 @@
 <template name="deckPage">
   {{> deckItem}}
+
   <ul class="cards">
     {{#each cards}}
       {{> cardItem}}
     {{/each}}
   </ul>
+
+  {{#if currentUser}}
+    {{> cardSubmit}}
+  {{else}}
+    <p>Please login to add a card.</p>
+  {{/if}}
 </template>
