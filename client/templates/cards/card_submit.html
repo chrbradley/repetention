@@ -1,8 +1,8 @@
 <template name="cardSubmit">
   <form name="card" class="card-form form">
-    <div class="form-group" {{errorClass "question"}}>
+    <div class="form-group" {{errorClass 'question'}}>
       <div class="controls">
-        <label for="question">Question</label>
+        <label for="question">Question:</label>
         <textarea name="question" id="question" class="form-control" rows="3"></textarea>
         <span class="help-block">{{errorMessage 'question'}}</span>
       </div>
