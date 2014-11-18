@@ -21,18 +21,20 @@ if (Decks.find().count() === 0) {
 
   for ( var i = 0; i < 50; i++) {
     var rand = Math.floor(Math.random()*userBank.length);
+    var randCards = Math.floor(Math.random()*15)+3;
     var deckId = Decks.insert({
       title: i+'Decker',
       userId: userBank[rand]._id,
       author: userBank[rand].profile.name,
-      submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 3600 * 1000))
+      submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 3600 * 1000)),
+      cardsCount: randCards
     });
-    var randCards = Math.floor(Math.random()*15)+3;
-    for (var j = 0; j < randCards; j++) {
+    
+    for (var j = 1; j <= randCards; j++) {
       Cards.insert({
         deckId: deckId,
-        question: 'This is the question '+(j+1),
-        answer: 'This is the answer to the question '+(j+1)
+        question: 'This is the question '+(j),
+        answer: 'This is the answer to the question '+(j)
       });
     }
   }
