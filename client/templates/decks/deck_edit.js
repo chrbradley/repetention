@@ -21,6 +21,10 @@ Template.deckEdit.events({
       title: $(e.target).find('[name=title]').val()
     };
 
+    var errors = validateDeck(deckProperties);
+    if (errors.title)
+      return Session.set('deckEditErrors', errors);
+
     Decks.update(currentDeckId, {$set: deckProperties}, function(error) {
       if (error) {
         throwError(error.reason);

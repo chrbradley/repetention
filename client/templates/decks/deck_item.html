@@ -3,7 +3,8 @@
     <div class="deck-content">
       <h3>{{title}} <span>date: {{date}} </span></h3><span> submitted: {{submitted}}</span>
       <p>
-        Created by {{author}}
+        Created by {{author}}, 
+        <a href="{{pathFor 'deckPage'}}">{{cardsCount}} Cards</a>
         {{#if ownDeck}}
         <a href="{{pathFor 'deckEdit'}}">Edit</a>
         {{/if}}

@@ -31,8 +31,8 @@ if (Decks.find().count() === 0) {
     for (var j = 0; j < randCards; j++) {
       Cards.insert({
         deckId: deckId,
-        question: 'This is the cards question'+j,
-        answer: 'This is the answer to the question'+j
+        question: 'This is the question '+(j+1),
+        answer: 'This is the answer to the question '+(j+1)
       });
     }
   }
