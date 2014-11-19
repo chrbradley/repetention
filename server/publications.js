@@ -1,5 +1,9 @@
-Meteor.publish('decks', function() {
-  return Decks.find();
+Meteor.publish('decks', function(options) {
+  check(options, {
+    sort: Object,
+    limit: Number
+  });
+  return Decks.find({}, options);
 });
 
 Meteor.publish('cards', function(deckId) {
