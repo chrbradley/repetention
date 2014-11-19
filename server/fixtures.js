@@ -26,10 +26,10 @@ if (Decks.find().count() === 0) {
       title: i+'Decker',
       userId: userBank[rand]._id,
       author: userBank[rand].profile.name,
-      submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 3600 * 1000)),
+      submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 1000 * 3600 * 24)),
       cardsCount: randCards
     });
-    
+
     for (var j = 1; j <= randCards; j++) {
       Cards.insert({
         deckId: deckId,
