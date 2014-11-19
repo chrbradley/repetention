@@ -3,5 +3,9 @@
     {{#each decks}}
       {{> deckItem}}
     {{/each}}
+
+    {{#if nextPath}}
+      <a class="load-more" href="{{nextPath}}">Gimme Moar!</a>
+    {{/if}}
   </div>
 </template>

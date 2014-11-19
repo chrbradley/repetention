@@ -19,7 +19,7 @@ if (Decks.find().count() === 0) {
 
   var userBank = [coop, shane, wyatt];
 
-  for ( var i = 0; i < 50; i++) {
+  for ( var i = 0; i < 57; i++) {
     var rand = Math.floor(Math.random()*userBank.length);
     var randCards = Math.floor(Math.random()*15)+3;
     var deckId = Decks.insert({
