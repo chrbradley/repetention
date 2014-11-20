@@ -27,7 +27,9 @@ if (Decks.find().count() === 0) {
       userId: userBank[rand]._id,
       author: userBank[rand].profile.name,
       submitted: new Date(now - ((Math.floor(Math.random()*20)+1) * 1000 * 3600 * 24)),
-      cardsCount: randCards
+      cardsCount: randCards,
+      upvoters: [],
+      votes: 0
     });
 
     for (var j = 1; j <= randCards; j++) {

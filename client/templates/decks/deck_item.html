@@ -1,8 +1,10 @@
 <template name="deckItem">
   <div class="deck">
+    <a href="#" class="upvote btn btn-default">⬆</a>
     <div class="deck-content">
       <h3>{{title}} <span>date: {{date}} </span></h3><span> submitted: {{submitted}}</span>
       <p>
+        {{votes}} Votes,
         Created by {{author}}, 
         <a href="{{pathFor 'deckPage'}}">{{cardsCount}} Cards</a>
         {{#if ownDeck}}
