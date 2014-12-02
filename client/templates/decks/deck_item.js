@@ -1,11 +1,19 @@
 Template.deckItem.helpers({
   ownDeck: function() {
     return this.userId === Meteor.userId();
+  },
+  upvotedClass: function() {
+    var userId = Meteor.userId();
+    if (userId && !_.include(this.upvoters,userId)) {
+      return 'btn-primary upvotable';
+    } else {
+      return 'disabled';
+    }
   }
 });
 
 Template.deckItem.events({
-  'click .upvote': function(e) {
+  'click .upvotable': function(e) {
     e.preventDefault();
     Meteor.call('upvote', this._id);
   }

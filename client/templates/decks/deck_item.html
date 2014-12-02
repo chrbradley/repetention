@@ -1,8 +1,8 @@
 <template name="deckItem">
   <div class="deck">
-    <a href="#" class="upvote btn btn-default">⬆</a>
+    <a href="#" class="upvote btn btn-default {{upvotedClass}}">⬆</a>
     <div class="deck-content">
-      <h3>{{title}} <span>date: {{date}} </span></h3><span> submitted: {{submitted}}</span>
+      <h3>{{title}} <span>id: {{_id}} </span></h3><span> submitted: {{submitted}}</span>
       <p>
         {{votes}} Votes,
         Created by {{author}}, 
