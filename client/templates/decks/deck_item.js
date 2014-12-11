@@ -22,6 +22,19 @@ Template.deckItem.events({
   },
   'click .study': function(e) {
     e.preventDefault();
-    Meteor.call('addToStudyList', this._id);
+    var deckId = this._id;
+    Meteor.call('makeList', deckId, function(error, result) {
+      if (error) {
+        console.log('Whoops, could not verify deck in list');
+        console.log('error: ' + error);
+        return;
+      }
+      if (result) {
+        console.log('sucessfully verified deck');
+        console.log('result: ' + result);
+      } else {
+        console.log('nothing returned from makeList');
+      }
+    });
   }
 });

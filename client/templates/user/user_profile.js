@@ -11,5 +11,9 @@ Template.profile.helpers({
   decks: function() {
     var decksArray = Object.keys(Meteor.user().profile.reviewList.decks);
     return decksArray;
+  },
+  cards: function() {
+    var cardsArray = Object.keys(Meteor.user().profile.reviewList.cards);
+    return cardsArray;
   }
 });

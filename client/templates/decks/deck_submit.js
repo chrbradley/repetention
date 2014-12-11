@@ -31,7 +31,7 @@ Template.deckSubmit.events({
       // show this result, but route anyway
       if (result.deckExists)
         throwError('A deck with this title already exists.');
-      
+
       Router.go('deckPage', {_id: result._id});
     });
   }
